@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js" defer></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&family=Roboto:ital,wght@0,100;1,100&display=swap');
+    </style>
+    <title>TOP-Project:Library</title>
+</head>
+<body>
+    <div class="grid">
+       <h1>Digital Library</h1>
+       <div class="form" id="inputForm">
+           <input id="bookTitle" class="input" type="text" placeholder="Title of the book" value="">
+           <input id="bookAuthor" class="input" type="text" placeholder="Author of the book" value="">
+           <input id="bookPages" class="input" type="text" placeholder="Pages" value="">
+           <input id="addBook" class="addButton" type="submit" value="Add"></input>
+       </div>
+       <div class="headline">
+        <p>READ: <p id="num">0</p></p>
+        <p>UNREAD: <p id="num">0</p></p>
+        <p>BOOKS: <p id="num">0</p></p>
+        <button class="deleteButton">DELETE</button>
+       </div>
+       <div id="bookList" class="booklist">
+        <div class="books">
+            <p>TITLE</p>
+            <p>AUTHOR</p>
+            <p>PAGES</p>
+            <p>STATUS</p>
+            <p>REMOVE</p>
+       </div>
+       <div id="list" class="list">
+       </div>
+       </div>
+    </div>
+</body>
+</html>
