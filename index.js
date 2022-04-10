@@ -3,6 +3,7 @@ let myLibrary = [];
 let bookTitle = document.getElementById("bookTitle");
 let bookAuthor = document.getElementById("bookAuthor");
 let bookPages = document.getElementById("bookPages");
+let id =0;
 
 const addButton = document.getElementById("addBook");
 const container = document.getElementById("list");
@@ -11,15 +12,17 @@ const isNotRead = document.getElementById("unread");
 const bookNumber =document.getElementById("booksNumber");
 
 
-function Book(title, author, pages) {
+function Book(title, author, pages, id) {
   // the constructor...
+  this.id = id
   this.title = title
   this.author = author
   this.pages = pages
 }
 function addBookToLibrary() {
   addButton.addEventListener("click", ()=>{
-      const book = new Book(bookTitle.value, bookAuthor.value, bookPages.value);
+    generateId();
+      const book = new Book(bookTitle.value, bookAuthor.value, bookPages.value, id);
       myLibrary.push(book);
       addBooks();
       console.log(myLibrary)
@@ -51,36 +54,31 @@ function addBooks(){
       remButton.className = "removeButton";
       remButton.innerHTML ="Remove";
       bookDiv.append(bookName, bookAuthor, bookPages, radButton, remButton);
-
+      
     bookDiv.className = "bookDiv";
+    bookDiv.id = id;
     container.appendChild(bookDiv);
 
     remButton.addEventListener("click", () =>{
-      remButton.parentElement.remove();
       isNotRead.innerHTML = userUnreadBooks -1;
       bookNumber.innerHTML = userBooks -1;
-      
-      for(let i =0; i< myLibrary.length; i++){
-        const index = myLibrary.findIndex(object => {
-          return object.title === bookTitle.value;
-        });
-          myLibrary.splice(index,1);
-          return myLibrary, console.log(myLibrary, index)
-      }
-      
-    })
+      removeBook();
+      remButton.parentElement.remove();
+      console.log(myLibrary)
+     })
   for(let i = 0; i < myLibrary.length; i++){
     userUnreadBooks+=1;
     isNotRead.innerHTML = userUnreadBooks;
   }      
-    radButton.addEventListener("click", ()=>{
-      if(radButton.checked){
-        
-      }else{
-        
-      }
-    })
 }
+function removeBook(){
+  if(){
 
+  }
+}
+function generateId(){
+  id = id +1;
+  console.log(id)
+}
 addBookToLibrary();
 
